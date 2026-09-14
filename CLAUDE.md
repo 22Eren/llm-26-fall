@@ -4,39 +4,79 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-Course materials for **Natural Language Processing and Large Language Models** (CS40008.01) at Fudan University, Fall 2026. All course content in this repository (lecture notes, examples, exercises, docs) is written in English, even though the course is taught in Chinese.
+Course materials for **Natural Language Processing and Large Language Models** (CS40008.01) at Fudan University, Fall 2026. The public course website is <https://baojian.github.io/llm-26-fall/>. All content (lecture notes, slides, notebooks, docs) is written in English, even though the course is taught in Chinese. The first class was September 9, 2026; the course runs on Wednesdays through December 23, with October 7 skipped for National Day (see `docs/schedule.md`).
 
-The repo is currently scaffolding only: `README.md`, the course website `index.html` (see below), a student-facing `docs/schedule.md` (class period times and our 2026–2027 meeting dates), a git-ignored `workspace/` for students' own files, a uv project definition with the core dependencies, and a `.gitignore`. There is no source code, no tests, and no lint/format configuration yet. Do not assume a package layout exists; check the tree before referencing paths.
+## Repository layout
+
+```text
+index.html                 Course website (GitHub Pages, served as-is from main)
+assets/                    translations.js (zh strings) and local-materials.js for the website
+docs/schedule.md           Class periods and the dated week table (source of truth for dates)
+docs/course-revision.md    Instructor's syllabus and assessment review draft (Sep 7, 2026)
+papers/                    Course reading PDFs with a provenance README
+scripts/slides.py          `new`, `serve`, `vendor` commands for the slide framework
+scripts/notebooks.py       JupyterLab launcher used by `serve` (opens copies under workspace/)
+slides/                    Reveal.js lecture framework: shared/, template/, example/, lecture-01/, vendor/
+slides/tools/              Playwright-based checkers (check.mjs, check-notebook.mjs), run via npm
+surveys/lecture-01/        Student LLM-app survey: README, template, responses/<username>.md
+tests/                     pytest suite for scripts, notebooks, and the lecture-01 material
+workspace/                 Student scratch area, git-ignored except its README
+```
+
+Only `lecture-01` exists so far. New lectures are created with `uv run python scripts/slides.py new <N> "<Title>"`, which copies `slides/template/` into `slides/NN-<slug>/`. Read `slides/AGENTS.md` and `slides/README.md` before creating or editing any lecture; they define the layout rules, size limits, asset conventions (Plotly JSON, Excalidraw SVG plus source, Manim MP4 plus poster), and the required checks.
 
 ## Course website (`index.html`)
 
-The public course page is a single hand-written `index.html` at the repo root with inline CSS and a few lines of vanilla JS (it highlights the current teaching week from each row's `data-start` Sunday date). No build step, no external assets; `.nojekyll` makes GitHub Pages serve it as-is from the `main` branch root, the same setup as the Spring 2026 site at `baojian/llm-26`. Edit the HTML directly. The page is bilingual: every piece of translatable text is written twice, as `<span class="en">…</span><span class="zh">…</span>` side by side, and the EN/中文 button in the nav toggles a `zh` class on `<html>` (remembered in `localStorage`; `?lang=zh` in the URL forces Chinese). When changing any text, change both spans; language-neutral cells (dates in the readings column, paper names, numbers) have no pair. Keep dates in the "Key dates" cards and the schedule table consistent with `docs/schedule.md`. Weekly materials (slides, notebooks, PDFs) get linked from the matching table row when they are added. The Fall 2026 storyline, grading, and project format come from the instructor's teaching plan, kept outside this repo.
+A single hand-written page with inline CSS and vanilla JS. No build step; `.nojekyll` makes GitHub Pages serve the `main` root as-is. Edit the HTML directly.
+
+- **Bilingual by dictionary, not by paired spans.** Visible text is written once in English. `assets/translations.js` maps each English string to Chinese; the page script walks text nodes and swaps them when the EN/中文 button sets `zh` (remembered in `localStorage` as `course-language`). When you change any English text, update the matching key in `assets/translations.js`, or the Chinese view silently falls back to English. There is no `?lang=` URL parameter.
+- The schedule table highlights the current week from each row's `data-start` Sunday date. Keep those dates, the Coursework cards (quiz and assignment weeks), and `docs/schedule.md` consistent.
+- Material links in the table carry `data-local-path`; `assets/local-materials.js` rewrites them to the local preview server when the page is opened from `localhost`. Slide and notebook links point at `http://127.0.0.1:8000`, so students must run `scripts/slides.py serve` first.
+- The live assessment split is quizzes 10%, assignments 45%, individual project 45% (`index.html`, legend near the Assessment section). `docs/course-revision.md` still shows an older 5/15/40/40 proposal; the website is authoritative for students.
 
 ## Python environment (uv)
 
-The project is managed with [uv](https://docs.astral.sh/uv/). Python is pinned to 3.11 via `.python-version`, and `pyproject.toml` requires `>=3.11`. `uv.lock` is **intentionally tracked** so every student gets a reproducible environment; never add it to `.gitignore` and always commit lockfile changes alongside `pyproject.toml` changes.
+Managed with [uv](https://docs.astral.sh/uv/). Python is pinned to 3.11 via `.python-version`; `pyproject.toml` requires `>=3.11`. `uv.lock` is **intentionally tracked**; never add it to `.gitignore` and always commit lockfile changes alongside `pyproject.toml` changes.
 
 ```bash
-uv sync                      # create/refresh .venv from uv.lock
-uv add <package>             # add a dependency (updates pyproject.toml and uv.lock)
-uv add --dev <package>       # add a dev-only dependency
-uv run python <script.py>    # run inside the project environment
-uv run jupyter lab           # once jupyter is added as a dependency
+uv sync                                    # core environment (slides, JupyterLab, tests)
+uv sync --extra tokenization               # adds torch, transformers, tokenizers, ollama, spacy, ...
+uv sync --extra tokenization --extra multimodal   # adds diffusers and accelerate
+uv run python scripts/slides.py serve      # course preview at http://127.0.0.1:8000
+uv run python -m pytest tests/             # run the test suite (see note below)
 ```
+
+Run tests as `uv run python -m pytest`, not `uv run pytest`. The tests import `scripts.slides` and `scripts.notebooks` from the repo root, and only the `python -m` form puts the root on `sys.path`. Some tests execute every code cell of the lecture-01 notebooks offline; the full suite takes about 15 seconds.
 
 ### Toolchain mirrors Stanford CS336
 
-The Python version and dependency set intentionally match Stanford's CS336 (Language Modeling from Scratch, Spring 2026) lecture repo, checked out locally at `/Users/baojian/git/stanford-cs336-lectures`. Both use Python 3.11 and the same five direct dependencies with the same lower bounds: `edtrace` (executable-lecture framework), `einops`, `mmh3`, `modal` (remote GPU execution), and `tiktoken`. PyTorch, NumPy, Triton, and SymPy are not listed directly; they arrive transitively through `edtrace`, exactly as in CS336.
+The core dependency set matches Stanford's CS336 lecture repo, checked out locally at `/Users/baojian/git/stanford-cs336-lectures`: Python 3.11 and the same five packages with the same lower bounds (`edtrace`, `einops`, `mmh3`, `modal`, `tiktoken`). PyTorch, NumPy, Triton, and SymPy arrive transitively through `edtrace`. On top of CS336 this repo adds `jupyterlab`, `ipykernel`, and `psutil` for the notebook launcher, optional extras `tokenization` and `multimodal` for the lecture-01 notebooks, and `pytest` in the `dev` dependency group.
 
-When adding a dependency, check CS336's `pyproject.toml` first and reuse the same package and version bound if it is already there. Our lockfile resolved later than CS336's (September vs. May 2026), so patch/minor versions are newer (e.g. torch 2.14 vs 2.11); keep the bounds identical rather than pinning exact versions unless a lecture breaks.
+When adding a dependency, check CS336's `pyproject.toml` first and reuse the same package and bound if it is already there. Keep lower bounds rather than exact pins unless a lecture breaks. Heavy packages belong in an extra, not in the core list, so `uv sync` stays fast for students.
 
-Prefer `uv run <cmd>` over activating `.venv` manually. When test or lint tools are introduced, the expected invocations are `uv run pytest <path>::<test_name>` and `uv run ruff check .`; `.gitignore` already anticipates pytest, mypy, ruff, and Jupyter caches.
+## Slide framework checks (Node)
+
+Authoring checks use Playwright and are separate from pytest:
+
+```bash
+npm ci --prefix slides && npm --prefix slides run browser:install   # once
+npm --prefix slides run check -- lecture-01      # screenshots, overflow, assets, exercise IDs
+npm --prefix slides run pdf -- lecture-01        # PDF export into slides/.checks/
+npm --prefix slides run check:notebook -- http://127.0.0.1:8000 lecture-01   # needs serve running
+```
+
+Output goes to the ignored `slides/.checks/`. Vendored Reveal.js, KaTeX, and Plotly live in `slides/vendor/` and are tracked on purpose so GitHub Pages needs no build; refresh them only with `uv run python scripts/slides.py vendor` after `npm ci`.
+
+## Student survey pull requests
+
+Students submit `surveys/lecture-01/responses/<github-username>.md` through PRs titled `survey: <username>` (instructions in `surveys/lecture-01/README.md`). When asked to review or triage these PRs, check three things: the file is inside `responses/` with the lowercase username as its name, at most two boxes are checked, and the `GitHub username:` line is filled in. Students often leave `YOUR_USERNAME` in place or put the file at the repo root. Do not fix such mistakes yourself, even after merge; the survey is a first-PR exercise, so draft a comment asking the student to correct it in a follow-up PR. PRs should say `Related to #6`, never `Fixes #6`, so the shared issue stays open.
 
 ## Conventions
 
-- **Changes go through pull requests.** The README states lecture materials are prepared via PRs so they stay reviewable. Do not commit directly to `main`.
-- **Never commit model weights or experiment output.** `.gitignore` excludes `*.pt`, `*.pth`, `*.ckpt`, `*.safetensors`, `checkpoints/`, `outputs/`, and `logs/`. Keep large artifacts out of git; reference download locations instead.
-- **Instructor material lives elsewhere.** Solutions, hidden tests, rubrics, answer keys, and grading scripts belong in the private companion repo `baojian/llm-26-fall-instructors` (checked out at `../llm-26-fall-instructors`). Never add them here. Assignment handouts arrive in this repo only through that repo's `grading/strip_solutions.py`, so do not hand-edit released handout files; fix the canonical copy there and re-release.
-- **Student work lives in `workspace/`.** Its contents are git-ignored except `workspace/README.md`, so students can pull updates without conflicts. Never place course material there, and never commit anything from it. When a student asks to modify a course file, copy it into `workspace/` and edit the copy; run it from the repo root with `uv run python workspace/<file>.py`.
-- **Secrets stay in `.env`** (ignored). If an example config is needed, name it `.env.example`, which is explicitly allowed by `.gitignore`.
-- Student contributions via issues and PRs are planned but participation guidelines have not been published yet.
+- **Changes go through pull requests.** Do not commit directly to `main`. Instructor work so far has used `codex/<topic>` branches; use a similar descriptive branch name.
+- **Never commit model weights or experiment output.** `.gitignore` excludes `*.pt`, `*.pth`, `*.ckpt`, `*.safetensors`, `checkpoints/`, `outputs/`, `/output/`, and `logs/`. Reference download locations instead.
+- **Instructor material lives elsewhere.** Solutions, hidden tests, rubrics, answer keys, and grading scripts belong in the private companion repo `baojian/llm-26-fall-instructors`, expected at `../llm-26-fall-instructors` (it exists on GitHub but is not checked out on this machine as of September 10, 2026). Never add such material here. Assignment handouts arrive only through that repo's `grading/strip_solutions.py`, so do not hand-edit released handout files; fix the canonical copy there and re-release.
+- **Spring 2026 sources.** The previous course is `baojian/llm-26`, checked out at `/Users/baojian/git/llm-26`. `docs/course-revision.md` maps which spring notebooks and CS336 lectures each fall week reuses; consult it before authoring a new lecture.
+- **Student work lives in `workspace/`.** Everything there except `workspace/README.md` is git-ignored. The notebook launcher copies lecture notebooks and assets into `workspace/slides/<lecture>/` and never overwrites existing student files. Never place course material there and never commit anything from it. When a student asks to modify a course file, copy it into `workspace/` and edit the copy.
+- **Secrets stay in `.env`** (ignored). An example config must be named `.env.example`.
+- `AGENTS.md` at the root is the Codex-facing twin of this file; keep the two consistent when repository structure changes.
