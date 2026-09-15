@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="556" viewBox="0 0 960 556" role="img" aria-labelledby="chart-title chart-desc" font-family="Arial, Helvetica Neue, PingFang SC, Microsoft YaHei, sans-serif">
 <title id="chart-title">Which LLM apps do you use most?</title>
-<desc id="chart-desc">ChatGPT: 49; DeepSeek: 25; Doubao (豆包): 11; Gemini: 7; Claude: 4; Kimi: 3; Qwen (千问): 2; Tencent Yuanbao (腾讯元宝): 1; Zhipu Qingyan (智谱清言): 1</desc>
+<desc id="chart-desc">ChatGPT: 49; DeepSeek: 25; Doubao (豆包): 11; Gemini: 8; Claude: 5; Kimi: 3; Qwen (千问): 2; Tencent Yuanbao (腾讯元宝): 1; Zhipu Qingyan (智谱清言): 1</desc>
 <rect width="960" height="556" fill="#fbfbf9"/>
 <text x="32" y="44" font-size="26" font-weight="700" fill="#202b38">Which LLM apps do you use most?</text>
-<text x="32" y="72" font-size="17" fill="#566471">Lecture 01 survey · 57 responses · counted September 15, 2026</text>
+<text x="32" y="72" font-size="17" fill="#566471">Lecture 01 survey · 58 responses · counted September 15, 2026</text>
 <line x1="250.0" y1="88" x2="250.0" y2="492" stroke="#dce2e7" stroke-width="1"/>
 <text x="250.0" y="516" font-size="15" fill="#566471" text-anchor="middle">0</text>
 <line x1="313.3" y1="88" x2="313.3" y2="492" stroke="#dce2e7" stroke-width="1"/>
@@ -34,11 +34,11 @@
 <rect x="250" y="184" width="139.2" height="28" rx="4" fill="#20578c"/>
 <text x="399.2" y="204.0" font-size="16" fill="#202b38">11</text>
 <text x="236" y="248.0" font-size="17" fill="#202b38" text-anchor="end">Gemini</text>
-<rect x="250" y="228" width="88.6" height="28" rx="4" fill="#20578c"/>
-<text x="348.6" y="248.0" font-size="16" fill="#202b38">7</text>
+<rect x="250" y="228" width="101.2" height="28" rx="4" fill="#20578c"/>
+<text x="361.2" y="248.0" font-size="16" fill="#202b38">8</text>
 <text x="236" y="292.0" font-size="17" fill="#202b38" text-anchor="end">Claude</text>
-<rect x="250" y="272" width="50.6" height="28" rx="4" fill="#20578c"/>
-<text x="310.6" y="292.0" font-size="16" fill="#202b38">4</text>
+<rect x="250" y="272" width="63.3" height="28" rx="4" fill="#20578c"/>
+<text x="323.3" y="292.0" font-size="16" fill="#202b38">5</text>
 <text x="236" y="336.0" font-size="17" fill="#202b38" text-anchor="end">Kimi</text>
 <rect x="250" y="316" width="38.0" height="28" rx="4" fill="#20578c"/>
 <text x="298.0" y="336.0" font-size="16" fill="#202b38">3</text>
