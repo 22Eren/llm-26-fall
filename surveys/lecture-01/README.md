@@ -15,19 +15,19 @@ ID is needed. Share only app names you are comfortable making public.
 
 <!-- survey-results:start -->
 Counted from the merged files in [responses/](responses/) on September 15, 2026:
-**63 responses**, at most two selections each. 3 responses selected more than 2 apps and are not counted.
+**69 responses**, at most two selections each. 3 responses selected more than 2 apps and are not counted.
 
 ![Bar chart of the number of students who selected each LLM app](results.svg)
 
 | App | Students |
 | :--- | ---: |
-| ChatGPT | 53 |
-| DeepSeek | 27 |
-| Doubao (豆包) | 14 |
-| Gemini | 8 |
+| ChatGPT | 58 |
+| DeepSeek | 29 |
+| Doubao (豆包) | 16 |
+| Gemini | 9 |
 | Claude | 5 |
+| Qwen (千问) | 3 |
 | Kimi | 3 |
-| Qwen (千问) | 2 |
 | Tencent Yuanbao (腾讯元宝) | 1 |
 | Zhipu Qingyan (智谱清言) | 1 |
 
