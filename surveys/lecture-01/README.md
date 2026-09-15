@@ -15,14 +15,14 @@ ID is needed. Share only app names you are comfortable making public.
 
 <!-- survey-results:start -->
 Counted from the merged files in [responses/](responses/) on September 15, 2026:
-**58 responses**, at most two selections each. 3 responses selected more than 2 apps and are not counted.
+**61 responses**, at most two selections each. 3 responses selected more than 2 apps and are not counted.
 
 ![Bar chart of the number of students who selected each LLM app](results.svg)
 
 | App | Students |
 | :--- | ---: |
-| ChatGPT | 49 |
-| DeepSeek | 25 |
+| ChatGPT | 50 |
+| DeepSeek | 26 |
 | Doubao (豆包) | 11 |
 | Gemini | 8 |
 | Claude | 5 |
@@ -30,6 +30,7 @@ Counted from the merged files in [responses/](responses/) on September 15, 2026:
 | Qwen (千问) | 2 |
 | Tencent Yuanbao (腾讯元宝) | 1 |
 | Zhipu Qingyan (智谱清言) | 1 |
+| Doubao | 1 |
 
 Apps written under *Other* get their own bar with the suffix "(Other)".
 <!-- survey-results:end -->
