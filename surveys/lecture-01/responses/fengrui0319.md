@@ -12,7 +12,7 @@ Count the web and mobile versions of the same app as one choice.
 - [ ] Claude
 - [ ] Gemini
 - [ ] DeepSeek
-- [x] Doubao
+- [x] Doubao (豆包)
 - [ ] Qwen
 - [ ] Kimi
 - [ ] Tencent Yuanbao
