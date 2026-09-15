@@ -1,6 +1,6 @@
 # Lecture 01 LLM app survey
 
-GitHub username: YOUR_USERNAME
+GitHub username: fengrui0319
 
 ## Which LLM apps do you use most in everyday life?
 
@@ -12,7 +12,7 @@ Count the web and mobile versions of the same app as one choice.
 - [ ] Claude
 - [ ] Gemini
 - [ ] DeepSeek
-- [ ] Doubao (豆包)
+- [x] Doubao (豆包)
 - [ ] Qwen (千问)
 - [ ] Kimi
 - [ ] Tencent Yuanbao (腾讯元宝)
