@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CS40008.01 LLMs · Fall 2026 · Fudan University</title>
+<link rel="stylesheet" href="assets/course-language.css">
 <meta name="description" content="Large Language Models, Fall 2026 at Fudan University. Wednesdays 13:30–16:10, HGX103.">
 <style>
   :root {
@@ -55,10 +56,7 @@
   nav.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 18px; padding: 8px 20px; font-size: 0.95rem; }
   nav.top a { color: var(--fg); font-weight: 500; }
   nav.top a:hover { color: var(--accent); text-decoration: none; }
-  .lang-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--card); }
-  .lang-toggle button { background: none; border: 0; padding: 3px 12px; cursor: pointer; color: var(--muted); font: inherit; font-size: 0.85rem; font-weight: 600; }
-  .lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
-  .lang-toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+
 
   main section { padding: 36px 0 8px; border-bottom: 1px solid var(--line); }
   main section:last-of-type { border-bottom: none; }
@@ -194,7 +192,7 @@
 </section>
 <section id="schedule">
   <h2>Weekly schedule</h2>
-  <p><span>Before opening local slides or notebooks, run</span> <code>uv sync</code>, <span>then</span> <code>uv run python scripts/slides.py serve</code>.</p>
+  <p><span>Before opening local slides or notebooks, run</span> <code>uv sync</code>, <span>then</span> <code>uv run python scripts/slides.py serve</code>. <a href="https://github.com/baojian/llm-26-fall/tree/main/tasks" target="_blank" rel="noopener noreferrer">Weekly tasks</a> · <a href="https://github.com/baojian/llm-26-fall/blob/main/tasks/PROGRESS.md" target="_blank" rel="noopener noreferrer">Progress board</a></p>
   <div class="table-wrap"><table id="week-table">
     <thead><tr><th scope="col">Week</th><th scope="col">Date</th><th scope="col">Topic and question</th><th scope="col">Content and materials</th><th scope="col">Milestone</th></tr></thead>
     <tbody>
@@ -205,18 +203,22 @@
         <td>Brief introduction to LLMs; bytes and Unicode; BPE; special tokens; vocabulary choices for Chinese and English.
           <div class="practice"><strong>Practice:</strong> Trace BPE merges, check encode/decode round trips, and compare Chinese and English tokenization at different vocabulary sizes.</div>
           <div class="materials"><strong>Slides:</strong> <a href="http://127.0.0.1:8000/slides/lecture-01/" data-local-path="/slides/lecture-01/" target="_blank" rel="noopener noreferrer">lecture-01-slides</a></div>
+          <div class="materials"><strong>Reading:</strong> <a href="docs/lecture-01-pre-tokenization.html">Text preprocessing and tokenizer pipelines</a></div>
           <div class="materials"><strong>Exercise:</strong> <a href="http://127.0.0.1:8000/slides/shared/notebook.html?lecture=lecture-01" data-local-path="/slides/shared/notebook.html?lecture=lecture-01" target="_blank" rel="noopener noreferrer">lecture-01-exercise.ipynb</a></div>
           <div class="materials"><strong>Extended practice:</strong> <a href="http://127.0.0.1:8000/slides/shared/notebook.html?lecture=lecture-01&amp;notebook=lecture-01-exercise-tokenization.ipynb" data-local-path="/slides/shared/notebook.html?lecture=lecture-01&amp;notebook=lecture-01-exercise-tokenization.ipynb" target="_blank" rel="noopener noreferrer">lecture-01-exercise-tokenization.ipynb</a></div>
-          <div class="materials"><strong>Papers:</strong> <a href="papers/sennrich-2016-subword-units.pdf" target="_blank" rel="noopener noreferrer">BPE (Sennrich et al., 2016)</a> · <a href="papers/kudo-2018-sentencepiece.pdf" target="_blank" rel="noopener noreferrer">SentencePiece (Kudo and Richardson, 2018)</a></div></td>
+          <div class="materials"><strong>Papers:</strong> <a href="papers/sennrich-2016-subword-units.pdf" target="_blank" rel="noopener noreferrer">BPE (Sennrich et al., 2016)</a> · <a href="papers/kudo-2018-sentencepiece.pdf" target="_blank" rel="noopener noreferrer">SentencePiece (Kudo and Richardson, 2018)</a> · <a href="https://github.com/baojian/llm-26-fall/blob/main/docs/tokenizer-reading-list.md" target="_blank" rel="noopener noreferrer">Tokenizer reading list</a> · <a href="docs/tokenizer-papers.html" target="_blank" rel="noopener noreferrer">Interactive version</a></div>
+          <div class="materials"><strong>Survey results:</strong> <a href="surveys/lecture-01/results.svg" target="_blank" rel="noopener noreferrer">Which LLM apps do you use most?</a> · <a href="https://github.com/baojian/llm-26-fall/tree/main/surveys/lecture-01" target="_blank" rel="noopener noreferrer">counts</a></div></td>
         <td>—</td>
       </tr>
       <tr data-start="2026-09-13">
         <td class="num">2</td>
         <td class="date">Sep 16</td>
         <td><strong>Language models, cross-entropy, and perplexity</strong><span class="lens">What does a language-model loss measure, and what can a simple baseline tell us?</span></td>
-        <td>Chain rule; bigram MLE; additive smoothing and interpolation; NLL, cross-entropy, perplexity; held-out splits and sampling.
-          <div class="practice"><strong>Practice:</strong> Build a bigram model, check its loss by hand, and compare domains using the same tokenizer.</div>
-          <div class="materials"><strong>References:</strong> To be updated.</div></td>
+        <td>Chain rule; N-gram models and bigram MLE; NLL, cross-entropy, perplexity; held-out splits and sampling; smoothing in one page; neural probabilistic LMs.
+          <div class="practice"><strong>Practice:</strong> Estimate a bigram model by hand, propose a test-set metric, compute perplexity, and sample sentences.</div>
+          <div class="materials"><strong>Slides:</strong> <a href="http://127.0.0.1:8000/slides/lecture-02/" data-local-path="/slides/lecture-02/" target="_blank" rel="noopener noreferrer">lecture-02-slides</a></div>
+          <div class="materials"><strong>Exercise:</strong> <a href="http://127.0.0.1:8000/slides/shared/notebook.html?lecture=lecture-02" data-local-path="/slides/shared/notebook.html?lecture=lecture-02" target="_blank" rel="noopener noreferrer">lecture-02-exercise.ipynb</a></div>
+          <div class="materials"><strong>References:</strong> <a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf" target="_blank" rel="noopener noreferrer">Jurafsky and Martin, Chapter 3: N-gram Language Models</a></div></td>
         <td>A1 released</td>
       </tr>
       <tr data-start="2026-09-20">
@@ -237,11 +239,11 @@
           <div class="materials"><strong>References:</strong> To be updated.</div></td>
         <td>A1 due</td>
       </tr>
-      <tr data-start="2026-10-04" class="holiday">
+      <tr data-start="2026-10-04">
         <td class="num">5</td>
-        <td class="date">Oct 7</td>
-        <td><strong>No class</strong><span class="flag">National Day</span></td>
-        <td>—</td>
+        <td class="date">Oct 10</td>
+        <td><strong>Make-up class (Saturday)</strong><span class="lens">The Oct 7 meeting falls on National Day and is moved to Saturday, Oct 10.</span></td>
+        <td>To be announced.</td>
         <td>—</td>
       </tr>
       <tr data-start="2026-10-11">
@@ -417,6 +419,7 @@
 </section>
 </main>
 <footer><div class="wrap"><p>CS40008.01 · LLMs · Fall 2026 · Fudan University. Maintained by <a href="https://github.com/baojian" target="_blank" rel="noopener noreferrer">Baojian Zhou</a>, Claude Code and Codex.</p></div></footer>
+<script src="assets/course-language.js"></script>
 <script src="assets/translations.js"></script>
 <script src="assets/local-materials.js"></script>
 <script>
@@ -468,14 +471,9 @@
           ? (chinese ? '期末提交周' : 'Final submission week')
           : (chinese ? '本周：第 ' + currentWeek + ' 周' : 'This week: ' + currentWeek) + (isHoliday ? (chinese ? ' · 停课' : ' · no class') : '');
       }
-      try { localStorage.setItem('course-language', language); } catch (error) { /* Storage may be unavailable for local files. */ }
     }
-    document.querySelectorAll('.lang-toggle button').forEach(function (button) {
-      button.addEventListener('click', function () { setLanguage(button.dataset.lang); });
-    });
-    var savedLanguage = 'en';
-    try { if (localStorage.getItem('course-language') === 'zh') savedLanguage = 'zh'; } catch (error) { /* Default to English. */ }
-    setLanguage(savedLanguage);
+    window.addEventListener('course:language', function (event) { setLanguage(event.detail.language); });
+    setLanguage(CourseLanguage.get());
   })();
 </script>
 </body>

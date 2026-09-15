@@ -19,6 +19,15 @@ notebook order. The deck bundles the Big Data image
 and Johannesburg video clip; see [media provenance](lecture-01/assets/README.md).
 Course paper PDFs are kept in [papers/](../papers/README.md).
 
+[Lecture 02](lecture-02/index.html) ports the instructor's Spring 2026
+N-gram lecture into this template: probabilistic N-gram LMs, perplexity,
+smoothing, and neural probabilistic LMs. Its
+[teaching plan](lecture-02/teaching-plan.md) maps the timing and lists the
+differences from the Spring deck; its
+[notebook](lecture-02/lecture-02-exercise.ipynb) runs exercises E01–E05 and
+practice P01 offline with the standard library. Media provenance is in
+[lecture-02/assets/README.md](lecture-02/assets/README.md).
+
 ## Teaching from a classroom browser
 
 Once the slide files reach the branch published by GitHub Pages, open the deck
@@ -34,6 +43,11 @@ installation or instructor laptop is required for viewing.
   using the local course server.
 - **References:** open the reading slide.
 - **Print:** open the PDF print layout in a new tab.
+- **EN / 中文:** switch the course interface language. The preference is shared
+  with the course homepage, reading pages, and notebook launcher on the same
+  website. Existing deck content remains in English; Chinese mode displays
+  this availability explicitly. The Lecture 01 preprocessing reader has full
+  English and Chinese text and diagrams.
 
 The print layout has **−**, **+**, **100%**, and **Fit page** controls for
 previewing the slides at different sizes. These controls and their zoom level
@@ -118,6 +132,7 @@ slides/
   template/               Starter files copied by the creation command
   example/                Checked sample with a browser demonstration
   lecture-01/             Lecture 01 deck and lecture-01-exercise.ipynb
+  lecture-02/             Lecture 02 deck and lecture-02-exercise.ipynb
   01-tokenization/        A lecture created when its content is ready
     index.html            Shared viewer shell
     lecture.json          Title, language, and optional demo module
