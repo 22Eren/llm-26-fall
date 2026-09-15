@@ -1,8 +1,10 @@
 # Participation workflow: timelines, issues, and pull requests
 
 This page is the reusable operating chart for the course's GitHub-based
-participation: when the teaching team opens issues, when students submit,
-who checks what, and how the results return to the class. The diagrams are
+participation (weekly tasks and surveys): when the teaching team opens
+issues, when students submit, who checks what, and how the results return
+to the class. Graded work (quizzes, assignments, the individual project) is
+submitted on [Fudan eLearning](https://elearning.fudan.edu.cn/), not here; section 0 draws the line. The diagrams are
 [Mermaid](https://mermaid.js.org/) and render on GitHub; edit the text to
 change them. Dates come from [schedule.md](schedule.md) and the
 [course website](../index.html); change them there first, then here.
@@ -10,6 +12,22 @@ change them. Dates come from [schedule.md](schedule.md) and the
 Related: the Week 1 survey ([surveys/lecture-01](../surveys/lecture-01/)),
 which is the template for every weekly activity: one file per student, a
 mechanical check, nothing to leak, and a chart shown at the next lecture.
+
+## 0. Where each piece of work is submitted
+
+Two channels, and they do not mix:
+
+| Work | Counts toward | Where to submit | Public? |
+| --- | --- | --- | --- |
+| Quizzes 1–5 | Quizzes 10% | In class; grades recorded on [Fudan eLearning](https://elearning.fudan.edu.cn/) | no |
+| Assignments A1–A3 | Assignments 45% | [Fudan eLearning](https://elearning.fudan.edu.cn/), as announced there | no |
+| Individual project (proposal, progress update, final report) | Project 45% | [Fudan eLearning](https://elearning.fudan.edu.cn/), as announced there | no |
+| Weekly tasks and surveys (this page) | Participation record on the [progress board](../tasks/PROGRESS.md); how it counts toward the grade is announced on the course website | Pull request to this repository | yes |
+| Proposals and problem reports about course material | Credited in the task or file you improved | GitHub issue form, then a pull request | yes |
+
+Nothing graded is submitted through GitHub, and nothing on GitHub needs a
+real name or student ID. If an assignment asks you to reuse code from a
+weekly task, copy it into your [eLearning](https://elearning.fudan.edu.cn/) submission; do not link the PR.
 
 ## 1. Semester timeline
 
@@ -38,24 +56,24 @@ gantt
     L15 Diffusion LMs             :milestone, l15, 2026-12-16, 0d
     L16 Agents and synthesis      :milestone, l16, 2026-12-23, 0d
 
-    section Quizzes (in class)
+    section Quizzes (in class, graded on eLearning)
     Quiz 1 :milestone, 2026-09-23, 0d
     Quiz 2 :milestone, 2026-10-14, 0d
     Quiz 3 :milestone, 2026-10-28, 0d
     Quiz 4 :milestone, 2026-11-18, 0d
     Quiz 5 :milestone, 2026-12-16, 0d
 
-    section Assignments (private submission)
+    section Assignments (submitted on eLearning)
     A1 Text and probability :a1, 2026-09-16, 2026-09-30
     A2                      :a2, 2026-10-14, 2026-11-04
     A3                      :a3, 2026-11-18, 2026-12-09
 
-    section Individual project
+    section Individual project (submitted on eLearning)
     Proposal due        :milestone, 2026-10-21, 0d
     Progress update due :milestone, 2026-12-02, 0d
     Final report due    :milestone, 2026-12-30, 0d
 
-    section Weekly tasks (issues open Wed, PRs close Tue 23:59)
+    section Weekly tasks on GitHub (issues open Wed, PRs close Tue 23:59)
     W02 :t02, 2026-09-16, 2026-09-22
     W03 :t03, 2026-09-23, 2026-09-29
     W04 :t04, 2026-09-30, 2026-10-06
@@ -142,7 +160,7 @@ still L05), and zero-padding keeps them sorted.
 
 | Lecture labels (blue) | Type labels |
 | --- | --- |
-| `l01-tokenization`, `l02-ngram`, `l03-embeddings`, `l04-attention`, `l05-makeup`, `l06-transformer`, `l07-pretraining`, `l08-data`, `l09-scaling`, `l10-evaluation`, `l11-sft`, `l12-alignment`, `l13-rag`, `l14-inference`, `l15-diffusion`, `l16-agents` | `task` (student exercise, many submissions), `proposal` (a task suggested by a student through the issue form; relabelled `task` when accepted), `help wanted` (one student, improves the repo), `bug`, `figure`, `survey`, `prep` (teaching team's own lecture preparation, e.g. #39), `project`, `not-done` |
+| `l01-tokenization`, `l02-ngram`, `l03-embeddings`, `l04-attention`, `l05-makeup`, `l06-transformer`, `l07-pretraining`, `l08-data`, `l09-scaling`, `l10-evaluation`, `l11-sft`, `l12-alignment`, `l13-rag`, `l14-inference`, `l15-diffusion`, `l16-agents` | `task` (student exercise, many submissions), `proposal` (a task suggested by a student through the issue form; relabelled `task` when accepted), `help wanted` (one student, improves the repo), `bug`, `figure`, `survey`, `prep` (teaching team's own lecture preparation, e.g. #39), `project` (teaching-team tracking only; project deliverables go through [eLearning](https://elearning.fudan.edu.cn/)), `not-done` |
 
 | Item | Rule | Example |
 | --- | --- | --- |
@@ -160,8 +178,10 @@ Students can propose tasks and report problems through the issue forms
 An accepted proposal is credited in the task's `instruction.md`.
 
 Privacy: GitHub username only, no real names or student IDs; the same rule as
-the survey. Assignments A1–A3 stay on the private channel because their
-solutions are shared; weekly tasks are public because every answer differs.
+the survey. Quizzes, assignments A1–A3, and the individual project are
+submitted on [Fudan eLearning](https://elearning.fudan.edu.cn/), never through GitHub, because their solutions
+are shared across students; weekly tasks are public because every answer
+differs (see section 0).
 
 ## 5. Kinds of task that check themselves
 
