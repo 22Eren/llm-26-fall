@@ -1,6 +1,6 @@
 # Lecture 01 LLM app survey
 
-GitHub username: fengrui0319
+GitHub username: YOUR_USERNAME
 
 ## Which LLM apps do you use most in everyday life?
 
