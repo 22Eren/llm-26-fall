@@ -1,23 +1,24 @@
 # NLP and LLMs — Fall 2026
 
-Course materials for **Natural Language Processing and Large Language Models**
-(CS40008.01) at Fudan University. Everything students need is in this
-repository or on the course website: <https://baojian.github.io/llm-26-fall/>.
+Course materials for **NLP and LLMs** (CS40008.01) at Fudan University. Everything students need is in this
+repo or on the course website: <https://baojian.github.io/llm-26-fall/>.
 
 ## Getting started
 
 1. Install [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/).
-2. Clone the course: `git clone https://github.com/baojian/llm-26-fall.git`, then `cd llm-26-fall`.
-3. Start the local course server: `uv run python scripts/slides.py serve` and open <http://127.0.0.1:8000>. Python, Jupyter, and Reveal.js are prepared automatically.
-4. Open slides and exercises from that page. Notebooks open in JupyterLab as personal copies under `workspace/`.
-5. Before each class: stop the server with `Ctrl+C`, run `git pull`, and start it again.
+2. Clone the course: `git clone https://github.com/baojian/llm-26-fall.git`.
+3. Run `cd llm-26-fall`, then start the local course server: `uv run python scripts/slides.py serve` and open <http://127.0.0.1:8000>.
+4. For example, Lecture 01 is at <http://localhost:8000/slides/lecture-01/>.
+5. Slides are updated before each lecture, so run `git pull` before class and restart the server.
 
-Weekly activities (surveys, tasks) are submitted as pull requests from the GitHub website. See the [participation workflow](docs/participation-workflow.md).
+You can also hand these steps to a coding agent such as Claude Code or Codex in one prompt.
+
+Quizzes, assignments, and the individual project are submitted on [eLearning](https://elearning.fudan.edu.cn/); weekly tasks and surveys are submitted as pull requests from the GitHub website. See the [participation workflow](docs/participation-workflow.md).
 
 ## Course information
 
 - **Course code:** CS40008.01
-- **Semester:** Fall 2026 (2026–2027 academic year, first semester)
+- **Semester:** Fall 2026 (2026–2027 academic year, fall semester)
 - **Schedule:** Wednesdays, periods 6–8 (13:30–16:10), weeks 1–16
 - **First / last class:** September 9 / December 23, 2026
 - **Make-up class:** Saturday, October 10 (National Day falls on October 7)
