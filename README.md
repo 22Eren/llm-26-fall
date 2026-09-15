@@ -1,85 +1,40 @@
 # NLP and LLMs — Fall 2026
 
-Course materials for **NLP and LLMs** at Fudan University.
-
-Course website: <https://baojian.github.io/llm-26-fall/>.
+Course materials for **Natural Language Processing and Large Language Models**
+(CS40008.01) at Fudan University. Everything students need is in this
+repository or on the course website: <https://baojian.github.io/llm-26-fall/>.
 
 ## Getting started
 
-Install [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/), then run `git clone https://github.com/baojian/llm-26-fall.git` and `cd llm-26-fall`. Start the course with `uv run python scripts/slides.py serve` and open <http://127.0.0.1:8000>. Python and Jupyter dependencies are prepared automatically; Reveal.js is included. Open slides or exercises from the course page; notebooks open in JupyterLab with personal copies under `workspace/`. Before class, stop the server with `Ctrl+C`, run `git pull`, and start it again.
+1. Install [Git](https://git-scm.com/downloads) and [uv](https://docs.astral.sh/uv/getting-started/installation/).
+2. Clone the course: `git clone https://github.com/baojian/llm-26-fall.git`, then `cd llm-26-fall`.
+3. Start the local course server: `uv run python scripts/slides.py serve` and open <http://127.0.0.1:8000>. Python, Jupyter, and Reveal.js are prepared automatically.
+4. Open slides and exercises from that page. Notebooks open in JupyterLab as personal copies under `workspace/`.
+5. Before each class: stop the server with `Ctrl+C`, run `git pull`, and start it again.
 
-## Course Information
+Weekly activities (surveys, tasks) are submitted as pull requests from the GitHub website. See the [participation workflow](docs/participation-workflow.md).
+
+## Course information
 
 - **Course code:** CS40008.01
 - **Semester:** Fall 2026 (2026–2027 academic year, first semester)
 - **Schedule:** Wednesdays, periods 6–8 (13:30–16:10), weeks 1–16
-- **First class:** September 9, 2026
+- **First / last class:** September 9 / December 23, 2026
+- **Make-up class:** Saturday, October 10 (National Day falls on October 7)
 - **Location:** Handan Campus, HGX103
-- **Teaching language:** Chinese / English
+- **Teaching language:** Chinese lectures, English materials
+- **Assessment:** Quizzes 10%, assignments 45%, individual project 45%
 
-## Schedule
+Dates, periods, and holidays: [docs/schedule.md](docs/schedule.md). Assessment details: [course website](https://baojian.github.io/llm-26-fall/).
 
-See [docs/participation-workflow.md](docs/participation-workflow.md) for the
-semester timeline, the weekly issue-and-PR loop, and the label and naming
-rules. See [docs/schedule.md](docs/schedule.md) for Fudan's daily period timetable,
-what "periods 6–8" means in clock time (13:30–16:10), and the calendar weeks
-with holidays and exam weeks. First class: September 9, 2026 (week 1). Last class: December 23, 2026
-(week 16). Week 5's Wednesday, October 7, falls on National Day; that meeting
-is moved to **Saturday, October 10**. The revised lecture sequence uses the
-15 Wednesday meetings; the make-up class's content is to be announced.
+## What is in this repository
 
-## First-lecture survey
-
-Select at most two LLM apps you use most in everyday life through the
-[Lecture 01 survey issue](https://github.com/baojian/llm-26-fall/issues/6).
-Each student submits one response file in a PR using the GitHub website.
-See the [survey guide](surveys/lecture-01/README.md) for instructions.
-
-## Lecture slides
-
-The [Reveal.js framework](slides/README.md) provides a shared theme, companion
-notebooks, references, and browser-based demonstrations. It supports Plotly
-charts, exported Excalidraw diagrams, and prepared Manim videos. The
-[tokenization sample](slides/example/index.html) demonstrates the format; it is
-not a complete first lecture. Published decks can be presented from a classroom
-browser without an instructor laptop.
-
-[Lecture 01](slides/lecture-01/index.html) has its own slides and
-[exercise notebook](slides/lecture-01/lecture-01-exercise.ipynb). The course
-page links to the local server for both. PDFs and citations for course readings
-are collected in [papers/](papers/README.md).
-
-The [tokenizer reading list](docs/tokenizer-reading-list.md) collects research from
-2022–2026, mostly peer-reviewed, for the class model's tokenizer decision. The same
-papers are on an [interactive page](https://baojian.github.io/llm-26-fall/docs/tokenizer-papers.html)
-that filters by question, topic, venue, and year.
-
-The bilingual [Lecture 01 preprocessing reader](docs/lecture-01-pre-tokenization.html)
-includes pipeline diagrams, practical corpus preparation, tokenizer training,
-and encoding behavior, with inspected examples from Kimi K3, GLM-5.2, and
-DeepSeek-V4. Markdown sources are available in
-[English](docs/lecture-01-pre-tokenization.md) and
-[Chinese](docs/lecture-01-pre-tokenization.zh.md).
-See [reading-page authoring](docs/README.md) to update the text and diagrams.
-The companion [pretraining corpora catalog](docs/lecture-01-pretraining-datasets.md)
-lists the public datasets real LLMs are trained on and the samples the course
-mirrors with `scripts/download_pretraining_datasets.py`.
-
-## Your Workspace
-
-Put your own notes, experiments, and exercise solutions in
-[`workspace/`](workspace/README.md). Everything there except its README is
-ignored by git, so pulling new course material never conflicts with your files
-and your work stays out of any pull request you open. To modify a course file,
-copy it into `workspace/` and edit the copy.
-
-## Repository Status
-
-The revised course schedule and content plan are available as a review draft.
-Lecture materials will be prepared through pull requests so that changes remain
-easy to review and discuss.
-
-This repository will contain course-facing materials such as lecture notes,
-examples, exercises, and contribution guidance. Students will be welcome to
-suggest improvements and contribute suitable material through issues and pull
-requests after the participation guidelines are published.
+| Folder | Contents |
+| --- | --- |
+| [`slides/`](slides/README.md) | Reveal.js lecture decks with companion notebooks. [Lecture 01](slides/lecture-01/index.html) (tokenization) and its [exercise notebook](slides/lecture-01/lecture-01-exercise.ipynb) are published; a [tokenization sample deck](slides/example/index.html) shows the format. |
+| [`docs/`](docs/README.md) | Reading pages and reference notes: the bilingual [Lecture 01 preprocessing reader](docs/lecture-01-pre-tokenization.html), the [pretraining corpora catalog](docs/lecture-01-pretraining-datasets.md), the [tokenizer reading list](docs/tokenizer-reading-list.md), the [pretraining plan](docs/pretraining-plan.md), and the [schedule](docs/schedule.md). |
+| [`papers/`](papers/README.md) | PDFs and citations for the course readings. |
+| [`surveys/`](surveys/lecture-01/README.md) | Weekly surveys: one response file per student, tallied into a chart. |
+| [`tasks/`](tasks/README.md) | Small self-checking exercises: one submission file per student, checked automatically. The [progress board](tasks/PROGRESS.md) shows everyone's merged work. |
+| [`workspace/`](workspace/README.md) | Your own notes, experiments, and exercise solutions. Everything there except its README is ignored by git, so `git pull` never conflicts with your files and your work stays out of any pull request you open. To modify a course file, copy it into `workspace/` and edit the copy: `uv run python workspace/<file>.py`. |
+| `scripts/` | Course tooling: the local server, notebook launcher, survey tally, progress board, and the pretraining-dataset downloader. |
