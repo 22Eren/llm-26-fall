@@ -15,6 +15,10 @@ You can also hand these steps to a coding agent such as Claude Code or Codex in 
 
 Quizzes, assignments, and the individual project are submitted on [eLearning](https://elearning.fudan.edu.cn/); weekly tasks and surveys are submitted as pull requests from the GitHub website. See the [participation workflow](docs/participation-workflow.md).
 
+Find assignment deadlines and updates in the
+[assignment announcement issues](https://github.com/baojian/llm-26-fall/issues?q=is%3Aissue%20label%3Aassignment).
+Subscribe to an assignment's issue to follow its announcements and clarifications.
+
 ## Course information
 
 - **Course code:** CS40008.01
