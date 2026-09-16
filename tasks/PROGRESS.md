@@ -85,15 +85,16 @@ Click a username to see that student's merged pull requests.
 | 76 | [xwtan51](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Axwtan51) | 0 | — | 1 | 1 | 🥇 |
 | 77 | [yanghongpeng8-rgb](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayanghongpeng8-rgb) | 0 | — | 1 | 1 | 🥇 |
 | 78 | [yannickchen77](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayannickchen77) | 0 | — | 1 | 1 | 🥇 |
-| 79 | [yuanzhu12345](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayuanzhu12345) | 0 | — | 1 | 1 | 🥇 |
-| 80 | [yunlangli-shtj](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayunlangli-shtj) | 0 | — | 1 | 1 | 🥇 |
-| 81 | [yyyun-0](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayyyun-0) | 0 | — | 1 | 1 | 🥇 |
-| 82 | [zhangbd-bot](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azhangbd-bot) | 0 | — | 1 | 1 | 🥇 |
-| 83 | [zhangtuowei4-art](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azhangtuowei4-art) | 0 | — | 1 | 1 | 🥇 |
-| 84 | [zhou-qixiang](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azhou-qixiang) | 0 | — | 1 | 1 | 🥇 |
-| 85 | [zifangchu](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azifangchu) | 0 | — | 1 | 1 | 🥇 |
-| 86 | [zsw-beginning](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azsw-beginning) | 0 | — | 1 | 1 | 🥇 |
-| 87 | [zyl-chou](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azyl-chou) | 0 | — | 1 | 1 | 🥇 |
+| 79 | [yoyo-x-star](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayoyo-x-star) | 0 | — | 1 | 1 | 🥇 |
+| 80 | [yuanzhu12345](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayuanzhu12345) | 0 | — | 1 | 1 | 🥇 |
+| 81 | [yunlangli-shtj](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayunlangli-shtj) | 0 | — | 1 | 1 | 🥇 |
+| 82 | [yyyun-0](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Ayyyun-0) | 0 | — | 1 | 1 | 🥇 |
+| 83 | [zhangbd-bot](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azhangbd-bot) | 0 | — | 1 | 1 | 🥇 |
+| 84 | [zhangtuowei4-art](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azhangtuowei4-art) | 0 | — | 1 | 1 | 🥇 |
+| 85 | [zhou-qixiang](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azhou-qixiang) | 0 | — | 1 | 1 | 🥇 |
+| 86 | [zifangchu](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azifangchu) | 0 | — | 1 | 1 | 🥇 |
+| 87 | [zsw-beginning](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azsw-beginning) | 0 | — | 1 | 1 | 🥇 |
+| 88 | [zyl-chou](https://github.com/baojian/llm-26-fall/pulls?q=is%3Apr+is%3Amerged+author%3Azyl-chou) | 0 | — | 1 | 1 | 🥇 |
 
 **Columns.** *Tasks passed*: submissions whose checker passes. *Correct rate*:
 passed ÷ submitted. *Participation*: lectures with at least one submission,
