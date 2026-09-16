@@ -9,7 +9,12 @@ design choice with your own numbers. Parts 1, 2, and 4 use the Python standard
 library; Part 3 uses PyTorch (already in the course environment). The data is
 in `data/`.
 
-## What you submit (on eLearning, one zip)
+## What you submit (on eLearning, one ZIP)
+
+**On Windows, Linux, and macOS, submit one standard `.zip` archive.** Use the
+supplied packager to create it in the required layout. Other archive formats
+such as `.rar`, `.7z`, and `.tar.gz` are not accepted; changing a file's extension
+does not convert it to ZIP.
 
 ```text
 a1/__init__.py    keep this file: it makes a1/ a package the graders can import
@@ -22,12 +27,17 @@ report.md         the Part 4 table and Part 5 (about 400 words), from the templa
 ```
 
 `manifest.toml` is the submission contract (required files, entry point, results
-layout, runtime expectations). Package with the script, which checks the files and
-`results.json` before writing the zip:
+layout, runtime expectations). From the assignment folder, run the script below
+in Windows PowerShell or a Linux/macOS terminal. Replace `12345678` with your
+student ID. The script checks the files and `results.json` before writing the ZIP:
 
 ```sh
-python make_submission.py <your-student-id>    # checks the files, writes a1-<id>.zip
+uv run python make_submission.py 12345678
 ```
+
+Upload the generated `a1-12345678.zip` to eLearning, using your own student ID in
+the filename. If you use Python directly instead of `uv`, run
+`python make_submission.py 12345678` in your configured Python environment.
 
 ## Setup
 
@@ -37,14 +47,26 @@ commits; submit them only through eLearning.
 
 Unzip the handout anywhere. It needs Python 3.11 or newer and PyTorch (Part 3
 only). Inside the course checkout, run `uv sync --extra tokenization --group dev`;
-this installs PyTorch and pytest from the course lockfile. Standalone,
-create an environment with `uv venv && uv pip install "torch>=2.6" pytest` or
-use any Python with `torch` and `pytest` installed. Then, from the handout
-folder:
+this installs PyTorch and pytest from the course lockfile. Standalone, run
+`uv venv` followed by `uv pip install "torch>=2.6" pytest`, or use any Python
+with `torch` and `pytest` installed. Then, from the handout folder, run the public
+tests on any operating system:
 
 ```sh
-uv run python -m pytest tests/      # the public tests
-OMP_NUM_THREADS=2 uv run python a1/evaluate.py data/  # full CPU experiment
+uv run python -m pytest tests/
+```
+
+Run the full CPU experiment on **Linux or macOS**:
+
+```sh
+OMP_NUM_THREADS=2 uv run python a1/evaluate.py data/
+```
+
+On **Windows PowerShell**:
+
+```powershell
+$env:OMP_NUM_THREADS = "2"
+uv run python a1/evaluate.py data/
 ```
 
 The completed reference experiment took **12 min 00 s and 1.03 GiB peak

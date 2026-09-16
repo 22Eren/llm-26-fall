@@ -135,7 +135,7 @@ def main(argv: list[str] | None = None) -> int:
     data = Path(args[0]) if args else Path(__file__).resolve().parents[1] / "data"
     results = {name: evaluate_source(data, *files) for name, files in SOURCES.items()}
     out = Path(__file__).resolve().parents[1] / "results.json"
-    out.write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    out.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     for name, r in results.items():
         for order, row in r["orders"].items():
             print(f"{name:12s} order {order}: mle {row['mle']['bits_per_byte']:.3f}  add {row['add']['bits_per_byte']:.3f}  "
