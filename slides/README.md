@@ -24,8 +24,8 @@ N-gram lecture into this template: probabilistic N-gram LMs, perplexity,
 smoothing, and neural probabilistic LMs. Its
 [teaching plan](lecture-02/teaching-plan.md) maps the timing and lists the
 differences from the Spring deck; its
-[notebook](lecture-02/lecture-02-exercise.ipynb) runs exercises E01–E05 and
-practice P01 offline with the standard library. Media provenance is in
+[notebook](lecture-02/lecture-02-exercise.ipynb) runs exercises E01–E03 and
+optional practices P01–P04 offline with the standard library. Media provenance is in
 [lecture-02/assets/README.md](lecture-02/assets/README.md).
 
 ## Teaching from a classroom browser
